@@ -21,40 +21,49 @@ body {
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  padding: 40px;
+  padding: 32px;
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
   text-align: center;
 }
 
 .title {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 28px;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.tip-text {
+  font-size: 13px;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 24px;
 }
 
 .list-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .drag-item {
   background-color: #ffffff;
   border: 2px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 16px;
-  font-size: 18px;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
   font-weight: 700;
   color: #334155;
   cursor: grab;
   user-select: none;
-  transition: transform 0.15s, border-color 0.15s, background-color 0.15s;
-}
-
-.drag-item:active {
-  cursor: grabbing;
+  transition: all 0.15s ease;
 }
 
 .drag-item:hover {
@@ -62,7 +71,6 @@ body {
   border-color: #cbd5e1;
 }
 
-/* Reduced opacity styling applied to the element source during drag */
 .drag-item.dragging {
   opacity: 0.4;
   border-style: dashed;

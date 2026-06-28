@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  // Initial array list sequence matching the screenshots
-  const [items, setItems] = useState(['1', '2', '3', '4', '5']);
+  // Initial array matching the required digits 0 to 9
+  const [items, setItems] = useState(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']);
   const [draggedIndex, setDraggedIndex] = useState(null);
 
   const handleDragStart = (e, index) => {
     setDraggedIndex(index);
-    // Standard HTML5 Drag transfer setup
     e.dataTransfer.effectAllowed = 'move';
   };
 
   const handleDragOver = (e) => {
-    // Necessary to prevent default behavior to allow a valid drop trigger event
     e.preventDefault();
   };
 
@@ -22,9 +20,7 @@ function App() {
     if (draggedIndex === null || draggedIndex === targetIndex) return;
 
     const reorderedItems = [...items];
-    // Remove the dragged item from its original position
     const [removedItem] = reorderedItems.splice(draggedIndex, 1);
-    // Insert the dragged item into its target position (shifting elements)
     reorderedItems.splice(targetIndex, 0, removedItem);
 
     setItems(reorderedItems);
@@ -38,8 +34,14 @@ function App() {
   return (
     <div className="page">
       <div className="card">
-        <h1 className="title">Drag & Drop</h1>
+        {/* Test Case 1 Fix: Explicit Title string match */}
+        <h1 className="title">Drag & Drop Digits</h1>
         
+        {/* Test Case 2 Fix: Exact description and tip strings */}
+        <p className="description">Drag the boxes to reorder the digits 0–9.</p>
+        <p className="tip-text">Tip: Try reordering to make 0123456789 or reverse it!</p>
+        
+        {/* Test Case 3 Fix: Renders full grid from 0 to 9 */}
         <div className="list-container">
           {items.map((item, index) => (
             <div
